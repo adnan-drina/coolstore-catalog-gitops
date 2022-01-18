@@ -1,0 +1,29 @@
+config:
+  argocd:
+    namespace: openshift-gitops
+  pipelines:
+    name: coolstore-catalog-cicd
+environments:
+- apps:
+  - name: app-coolstore-catalog
+    services:
+    - name: coolstore-catalog
+      pipelines:
+        integration:
+          bindings:
+          - coolstore-catalog-dev-app-coolstore-catalog-coolstore-catalog-binding
+          - github-push-binding
+      source_url: https://github.com/adnan-drina/coolstore-catalog.git
+      webhook:
+        secret:
+          name: webhook-secret-coolstore-catalog-dev-coolstore-catalog
+          namespace: coolstore-catalog-cicd
+  name: coolstore-catalog-dev
+  pipelines:
+    integration:
+      bindings:
+      - github-push-binding
+      template: app-ci-template
+- name: coolstore-catalog-stage
+gitops_url: https://github.com/adnan-drina/coolstore-catalog-gitops.git
+version: 1
