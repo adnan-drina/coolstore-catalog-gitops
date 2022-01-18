@@ -33,7 +33,7 @@ spec:
     template:
       ref: ci-dryrun-from-push-template
   - bindings:
-    - ref: coolstore-catalog-dev-app-coolstore-catalog-coolstore-catalog-binding
+    - ref: coolstore-catalog-binding
     - ref: github-push-binding
     interceptors:
     - params:
