@@ -29,13 +29,13 @@ spec:
     jsonPointers:
     - /spec/host
     kind: Route
-  - group: apps.openshift.io
+  - group: apps.openshift.io/DeploymentConfig
     kind: DeploymentConfig
     name: catalog
     namespace: coolstore-catalog-dev
     jsonPointers:
-      - /spec/triggers
-      - /spec/template/spec/containers/0/image
+    - /spec/triggers
+    - /spec/template/spec/containers/0/image
   project: default
   source:
     path: config/argocd
