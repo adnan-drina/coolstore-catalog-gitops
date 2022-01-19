@@ -42,7 +42,7 @@ spec:
       - env:
         - name: JAVA_OPTS_APPEND
           value: -Dspring.profiles.active=openshift
-        image: null
+        image: image-registry.openshift-image-registry.svc:5000/coolstore-catalog-dev/catalog
         imagePullPolicy: Always
         name: catalog
         ports:
@@ -81,5 +81,5 @@ spec:
         kind: ImageStreamTag
         name: catalog:latest
         namespace: coolstore-catalog-dev
-      lastTriggeredImage: null
+      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/coolstore-catalog-dev/catalog
     type: ImageChange
