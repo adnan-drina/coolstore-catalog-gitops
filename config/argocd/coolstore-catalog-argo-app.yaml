@@ -31,8 +31,6 @@ spec:
     kind: Route
   - group: apps.openshift.io
     kind: DeploymentConfig
-    name: catalog
-    namespace: coolstore-catalog-dev
     jsonPointers:
       - /spec/triggers
       - /spec/template
