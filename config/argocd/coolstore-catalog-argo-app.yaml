@@ -33,6 +33,9 @@ spec:
     kind: DeploymentConfig
     jsonPointers:
       - /spec/triggers
+  - group: apps.openshift.io
+    kind: DeploymentConfig
+    jsonPointers:
       - /spec/template
   project: default
   source:
