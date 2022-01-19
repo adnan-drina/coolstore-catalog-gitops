@@ -31,11 +31,10 @@ spec:
     kind: Route
   - group: apps.openshift.io
     kind: DeploymentConfig
-#    name: catalog
-#    namespace: coolstore-catalog-dev
+    name: catalog
+    namespace: coolstore-catalog-dev
     jsonPointers:
-      - /spec
-#    - /spec/triggers
+      - /spec/triggers
 #    - /spec/template/spec/containers/0/image
   project: default
   source:
