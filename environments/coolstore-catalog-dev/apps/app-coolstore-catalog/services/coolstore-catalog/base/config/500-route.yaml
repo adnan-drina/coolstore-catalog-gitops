@@ -1,0 +1,21 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app.kubernetes.io/name: catalog
+    app.kubernetes.io/part-of: coolstore-catalog
+    app.kubernetes.io/component: catalog
+    app.kubernetes.io/instance: catalog
+  name: catalog
+  namespace: coolstore-catalog-dev
+spec:
+  host: ""
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: catalog
+    weight: 100
+  wildcardPolicy: None

@@ -1,0 +1,85 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    app.openshift.io/connects-to: catalog-database
+    app.openshift.io/vcs-ref: main
+    app.openshift.io/vcs-uri: https://github.com/adnan-drina/coolstore-catalog.git
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app.kubernetes.io/name: catalog
+    app.kubernetes.io/component: catalog
+    app.kubernetes.io/instance: catalog
+    app.kubernetes.io/part-of: coolstore-catalog
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+    app.openshift.io/runtime: spring
+  name: catalog
+  namespace: coolstore-catalog-dev
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deploymentconfig: catalog
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        deploymentconfig: catalog
+    spec:
+      containers:
+      - env:
+        - name: JAVA_OPTS_APPEND
+          value: -Dspring.profiles.active=openshift
+        image: image-registry.openshift-image-registry.svc:5000/coolstore-catalog-dev/catalog@sha256:50af8254f0a0e68a2f5429589f21cbaa33f50d3009ed409e219b4314896e7eaa
+        imagePullPolicy: Always
+        name: catalog
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8443
+          protocol: TCP
+        - containerPort: 8778
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 15
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - catalog
+      from:
+        kind: ImageStreamTag
+        name: catalog:latest
+        namespace: coolstore-catalog-dev
+      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/coolstore-catalog-dev/catalog@sha256:50af8254f0a0e68a2f5429589f21cbaa33f50d3009ed409e219b4314896e7eaa
+    type: ImageChange

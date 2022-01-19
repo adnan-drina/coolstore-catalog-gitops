@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  annotations:
+    app.openshift.io/connects-to: catalog-database
+  labels:
+    app.kubernetes.io/name: catalog
+    app.kubernetes.io/component: catalog
+    app.kubernetes.io/instance: catalog
+    app.kubernetes.io/part-of: coolstore-catalog
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+    app.openshift.io/runtime: spring
+  name: catalog
+  namespace: coolstore-catalog-stage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: catalog
+      app.kubernetes.io/part-of: coolstore-catalog
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/name: catalog
+        app.kubernetes.io/part-of: coolstore-catalog
+    spec:
+      containers:
+      - image: quay.io/repository/adrina/coolstore-catalog:latest
+        imagePullPolicy: Always
+        name: catalog
+        ports:
+        - containerPort: 8080
+        resources: {}
+      serviceAccountName: default
+status: {}

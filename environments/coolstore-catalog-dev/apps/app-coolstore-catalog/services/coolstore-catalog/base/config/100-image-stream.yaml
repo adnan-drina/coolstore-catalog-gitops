@@ -1,0 +1,13 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewBuild
+  labels:
+    app.kubernetes.io/name: catalog
+    app.kubernetes.io/part-of: coolstore-catalog
+  name: catalog
+  namespace: coolstore-catalog-dev
+spec:
+  lookupPolicy:
+    local: false

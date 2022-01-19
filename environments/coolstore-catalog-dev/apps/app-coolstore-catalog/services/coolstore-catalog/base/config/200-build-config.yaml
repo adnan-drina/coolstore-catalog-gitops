@@ -1,0 +1,41 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewBuild
+    app.quarkus.io/build-timestamp: ""
+    app.quarkus.io/commit-id: ""
+  labels:
+    app.kubernetes.io/name: catalog
+    app.kubernetes.io/part-of: coolstore-catalog
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+    app.openshift.io/runtime: spring
+  name: catalog
+  namespace: coolstore-catalog-dev
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: catalog:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    binary: {}
+    type: Binary
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: openjdk-11:latest
+    type: Source
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - github:
+      secret: woEcii0NtngD4nTuf-Qg
+    type: GitHub
+  - generic:
+      secret: M2HL3qVIgjpUdDsr94BC
+    type: Generic
