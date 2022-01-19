@@ -35,7 +35,7 @@ spec:
     namespace: coolstore-catalog-dev
     jsonPointers:
       - /spec/triggers
-      - /spec/template/spec/containers/image
+      - /spec/template
   project: default
   source:
     path: config/argocd
