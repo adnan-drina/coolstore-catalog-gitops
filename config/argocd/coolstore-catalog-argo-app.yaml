@@ -29,6 +29,12 @@ spec:
     jsonPointers:
     - /spec/host
     kind: Route
+  - group: apps
+    kind: DeploymentConfig
+    name: catalog
+    namespace: coolstore-catalog-dev
+    jsonPointers:
+      - /spec/triggers
   project: default
   source:
     path: config/argocd
