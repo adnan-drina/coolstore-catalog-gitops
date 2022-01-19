@@ -29,7 +29,7 @@ spec:
     jsonPointers:
     - /spec/host
     kind: Route
-  - group: apps.openshift.io/DeploymentConfig
+  - group: apps.openshift.io
     kind: DeploymentConfig
 #    name: catalog
 #    namespace: coolstore-catalog-dev
