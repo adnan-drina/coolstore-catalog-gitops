@@ -16,7 +16,7 @@ spec:
     repoURL: https://github.com/adnan-drina/coolstore-catalog-gitops.git
   syncPolicy:
     automated:
-      prune: false
+#      prune: true
       selfHeal: true
 status:
   health: {}
