@@ -32,11 +32,8 @@ spec:
   - group: apps.openshift.io
     kind: DeploymentConfig
     jsonPointers:
-      - /spec/triggers
-  - group: apps.openshift.io
-    kind: DeploymentConfig
-    jsonPointers:
-      - /spec/template
+    - /spec/triggers
+    - /spec/template
   project: default
   source:
     path: config/argocd
