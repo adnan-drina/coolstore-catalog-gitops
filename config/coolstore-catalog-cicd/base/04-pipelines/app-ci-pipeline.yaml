@@ -108,8 +108,8 @@ spec:
             --label=io.openshift.build.commit.ref='$(params.GIT_REF)'
         - name: IMAGE
           value: $(params.IMAGE)
-        - name: DOCKERFILE
-          value: ./src/main/docker/Dockerfile.jvm
+#        - name: DOCKERFILE
+#          value: ./src/main/docker/Dockerfile.jvm
       runAfter:
         - package-app
       taskRef:
