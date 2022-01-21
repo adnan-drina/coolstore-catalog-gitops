@@ -6,18 +6,22 @@ metadata:
   namespace: coolstore-catalog-cicd
 spec:
   params:
-  - name: gitrepositoryurl
-    value: $(body.repository.clone_url)
-  - name: fullname
-    value: $(body.repository.full_name)
-  - name: io.openshift.build.commit.ref
-    value: $(extensions.ref)
-  - name: io.openshift.build.commit.id
-    value: $(body.head_commit.id)
-  - name: io.openshift.build.commit.date
-    value: $(body.head_commit.timestamp)
-  - name: io.openshift.build.commit.message
-    value: $(body.head_commit.message)
-  - name: io.openshift.build.commit.author
-    value: $(body.head_commit.author.name)
+    - name: gitrepositoryurl
+      value: $(body.repository.clone_url)
+    - name: git.repository.html_url
+      value: $(body.repository.html_url)
+    - name: name
+      value: $(body.repository.name)
+    - name: fullname
+      value: $(body.repository.full_name)
+    - name: io.openshift.build.commit.ref
+      value: $(extensions.ref)
+    - name: io.openshift.build.commit.id
+      value: $(body.head_commit.id)
+    - name: io.openshift.build.commit.date
+      value: $(body.head_commit.timestamp)
+    - name: io.openshift.build.commit.message
+      value: $(body.head_commit.message)
+    - name: io.openshift.build.commit.author
+      value: $(body.head_commit.author.name)
 status: {}

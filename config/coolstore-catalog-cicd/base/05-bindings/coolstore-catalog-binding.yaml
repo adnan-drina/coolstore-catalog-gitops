@@ -10,4 +10,8 @@ spec:
     value: quay.io/adrina/coolstore-catalog
   - name: tlsVerify
     value: "true"
+  - name: argoApp
+    value: coolstore-catalog-cicd-app
+  - name: environmentConfig
+    value: environments/coolstore-catalog-stage/apps/app-coolstore-catalog/services/coolstore-catalog/base/config/
 status: {}
