@@ -1,2 +1,13 @@
 bases:
 - ./config
+
+commonLabels:
+  app.kubernetes.io/name: catalog
+  app.kubernetes.io/part-of: coolstore-catalog
+  app.openshift.io/runtime: spring
+
+commonAnnotations:
+  app.openshift.io/connects-to: >-
+    ["catalog-database",{"apiVersion":"apps.openshift.io/v1","kind":"DeploymentConfig","name":"catalog-database"}]
+  app.openshift.io/vcs-ref: main
+  app.openshift.io/vcs-uri: https://github.com/adnan-drina/coolstore-catalog.git
