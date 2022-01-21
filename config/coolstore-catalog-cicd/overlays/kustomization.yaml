@@ -1,6 +1,7 @@
 bases:
 - ../base
-commonLabels:
-  app.openshift.io/vcs-source: adnan-drina/coolstore-catalog-gitops
-  app.kubernetes.io/name: catalog
-  app.kubernetes.io/part-of: coolstore-catalog
+
+#commonLabels:
+#  app.openshift.io/vcs-source: adnan-drina/coolstore-catalog-gitops
+#  app.kubernetes.io/name: catalog
+#  app.kubernetes.io/part-of: coolstore-catalog
