@@ -29,10 +29,8 @@ spec:
             successThreshold: 1
             timeoutSeconds: 1
           env:
-#            - name: JAVA_OPTS_APPEND
-#              value: -Dspring.profiles.active=openshift
-            - name: SPRING_PROFILE
-              value: openshift
+            - name: JAVA_OPTS_APPEND
+              value: -Dspring.profiles.active=openshift
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
