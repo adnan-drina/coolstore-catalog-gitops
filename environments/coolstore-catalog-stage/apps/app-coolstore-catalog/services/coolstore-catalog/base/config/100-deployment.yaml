@@ -10,7 +10,7 @@ spec:
       containers:
         - name: catalog
           image: >-
-            quay.io/adrina/coolstore-catalog:main-3815b50626f1d63d10ad05650444172a5c26dc3b
+            quay.io/adrina/coolstore-catalog:main-b9fe3b5a7a32f2b655c4ba3d13dad578d8d4c264
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -28,9 +28,11 @@ spec:
             periodSeconds: 5
             successThreshold: 1
             timeoutSeconds: 1
-#          env:
+          env:
 #            - name: JAVA_OPTS_APPEND
 #              value: -Dspring.profiles.active=openshift
+            - name: SPRING_PROFILE
+              value: openshift
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
