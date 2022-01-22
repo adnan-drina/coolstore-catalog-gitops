@@ -97,6 +97,7 @@ spec:
             - -DskipTests
             - clean
             - package
+            - -Dspring.profiles.active=dev
 
     - name: build-image
       params:
