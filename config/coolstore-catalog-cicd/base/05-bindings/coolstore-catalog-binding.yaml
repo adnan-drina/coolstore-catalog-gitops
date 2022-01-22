@@ -11,7 +11,7 @@ spec:
   - name: tlsVerify
     value: "true"
   - name: argoApp
-    value: coolstore-catalog-cicd-app
+    value: coolstore-catalog-stage-app
   - name: environmentConfig
     value: environments/coolstore-catalog-stage/apps/app-coolstore-catalog/services/coolstore-catalog/base/config/
 status: {}
