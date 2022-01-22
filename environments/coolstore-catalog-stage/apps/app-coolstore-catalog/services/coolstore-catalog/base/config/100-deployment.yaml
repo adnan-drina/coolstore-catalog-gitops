@@ -10,8 +10,7 @@ spec:
       containers:
         - name: catalog
           image: >-
-            image-registry.openshift-image-registry.svc:5000/coolstore-catalog-dev/catalog:latest
-#            quay.io/adrina/coolstore-catalog:main-bdcf5ecb13afc282fba3777b7a5c1a1eb4a2c246
+            quay.io/adrina/coolstore-catalog:main-bdcf5ecb13afc282fba3777b7a5c1a1eb4a2c246
           ports:
             - containerPort: 8080
               protocol: TCP
