@@ -97,7 +97,6 @@ spec:
             - -DskipTests
             - clean
             - package
-            - -Dspring.profiles.active=openshift
 
     - name: build-image
       params:
