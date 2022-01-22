@@ -9,8 +9,8 @@ spec:
     spec:
       containers:
         - env:
-            - name: JAVA_OPTS_APPEND
-              value: -Dspring.profiles.active=openshift
+          - name: JAVA_OPTS_APPEND
+            value: -Dspring.profiles.active=openshift
         - image: quay.io/adrina/coolstore-catalog:main-aba52265456683de3703f2e027cbdae68be4cca7
           imagePullPolicy: Always
           name: catalog
