@@ -1,6 +1,7 @@
 resources:
 - coolstore-catalog-argo-app.yaml
 - coolstore-catalog-cicd-app.yaml
+- coolstore-catalog-cicd-env.yaml
 - coolstore-catalog-dev-app.yaml
 - coolstore-catalog-dev-env.yaml
 - coolstore-catalog-stage-app.yaml

@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: null
+  name: coolstore-catalog-cicd-env
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: coolstore-catalog-cicd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: config/coolstore-catalog-cicd/env/overlays
+    repoURL: https://github.com/adnan-drina/coolstore-catalog-gitops.git
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+status:
+  health: {}
+  summary: {}
+  sync:
+    comparedTo:
+      destination: {}
+      source:
+        repoURL: ""
+    status: ""
