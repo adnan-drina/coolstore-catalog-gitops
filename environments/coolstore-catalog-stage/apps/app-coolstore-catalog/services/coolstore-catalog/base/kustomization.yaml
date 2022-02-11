@@ -5,4 +5,3 @@ commonLabels:
   app.kubernetes.io/name: catalog
   app.kubernetes.io/part-of: coolstore-catalog
   app.kubernetes.io/component: catalog
-  app.kubernetes.io/instance: catalog

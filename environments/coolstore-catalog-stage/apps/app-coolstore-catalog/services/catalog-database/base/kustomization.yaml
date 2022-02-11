@@ -1,2 +1,7 @@
 bases:
 - ./config
+
+commonLabels:
+  app.kubernetes.io/name: catalog-database
+  app.kubernetes.io/part-of: coolstore-catalog
+  app.kubernetes.io/component: postgresql

@@ -3,11 +3,6 @@ apiVersion: apps/v1
 metadata:
   name: catalog-database
   labels:
-    app: catalog-database
-    component: postgresql
-    app.kubernetes.io/component: postgresql
-    app.kubernetes.io/name: catalog-database
-    app.kubernetes.io/part-of: coolstore-catalog
     app.openshift.io/runtime: postgresql
 spec:
   replicas: 1

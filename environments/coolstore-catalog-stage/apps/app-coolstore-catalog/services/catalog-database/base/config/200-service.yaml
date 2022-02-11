@@ -3,8 +3,6 @@ kind: Service
 metadata:
   annotations:
     template.openshift.io/expose-uri: postgres://{.spec.clusterIP}:{.spec.ports[?(.name=="postgresql")].port}
-  labels:
-    template: postgresql-ephemeral-template
   name: catalog-database
 spec:
   ports:
@@ -12,8 +10,6 @@ spec:
       port: 5432
       protocol: TCP
       targetPort: 5432
-  selector:
-    app: catalog-database
   sessionAffinity: None
   type: ClusterIP
 status:

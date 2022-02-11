@@ -2,11 +2,6 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: catalog-database-pvc
-  labels:
-    app.kubernetes.io/component: postgres
-    app.kubernetes.io/name: catalog-database
-    app.kubernetes.io/part-of: coolstore-catalog
-    app.openshift.io/runtime: postgresql
 spec:
   accessModes:
     - ReadWriteOnce
