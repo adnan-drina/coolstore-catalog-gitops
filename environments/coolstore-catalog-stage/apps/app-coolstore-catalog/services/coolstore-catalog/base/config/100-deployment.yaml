@@ -13,9 +13,6 @@ metadata:
     app.openshift.io/vcs-uri: https://github.com/adnan-drina/coolstore-catalog.git
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: catalog
   strategy: {}
   template:
     spec:
