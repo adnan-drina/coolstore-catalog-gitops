@@ -1,2 +1,7 @@
 bases:
 - ../base
+
+commonLabels:
+  app.kubernetes.io/name: catalog-database
+  app.kubernetes.io/part-of: coolstore-catalog
+  app.openshift.io/runtime: postgresql

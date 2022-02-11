@@ -6,7 +6,6 @@ metadata:
   labels:
     template: postgresql-ephemeral-template
   name: catalog-database
-  namespace: coolstore-catalog-dev
 spec:
   ports:
   - name: postgresql

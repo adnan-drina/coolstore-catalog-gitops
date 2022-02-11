@@ -1,2 +1,4 @@
-bases:
-- ./config
+resources:
+- 100-deployment-config.yaml
+- 200-service.yaml
+- 300-secret.yaml

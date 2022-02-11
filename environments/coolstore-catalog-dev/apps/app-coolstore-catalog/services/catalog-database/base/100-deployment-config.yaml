@@ -4,12 +4,8 @@ metadata:
   annotations:
     template.alpha.openshift.io/wait-for-ready: "true"
   labels:
-    app.kubernetes.io/name: catalog-database
-    app.kubernetes.io/part-of: coolstore-catalog
-    app.openshift.io/runtime: postgresql
     template: postgresql-ephemeral-template
   name: catalog-database
-  namespace: coolstore-catalog-dev
 spec:
   replicas: 1
   revisionHistoryLimit: 10
