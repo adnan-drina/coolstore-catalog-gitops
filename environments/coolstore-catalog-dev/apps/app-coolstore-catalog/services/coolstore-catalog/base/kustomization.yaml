@@ -1,2 +1,7 @@
-bases:
-- ./config
+resources:
+- 100-image-stream.yaml
+- 101-image-stream-openjdk-11.yaml
+- 200-build-config.yaml
+- 300-deployment-config.yaml
+- 400-service.yaml
+- 500-route.yaml
