@@ -1,11 +1,6 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  labels:
-    app.kubernetes.io/name: catalog
-    app.kubernetes.io/part-of: coolstore-catalog
-    app.kubernetes.io/component: catalog
-    app.kubernetes.io/instance: catalog
   name: catalog
 spec:
   port:
