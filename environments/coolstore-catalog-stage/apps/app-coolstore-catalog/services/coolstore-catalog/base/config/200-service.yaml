@@ -22,7 +22,7 @@ spec:
       protocol: TCP
       targetPort: 8778
   selector:
-    app: catalog-database
+    deployment: catalog
   sessionAffinity: None
   type: ClusterIP
 status:
