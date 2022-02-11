@@ -14,10 +14,10 @@ spec:
   source:
     path: environments/coolstore-catalog-stage/apps/app-coolstore-catalog/overlays
     repoURL: https://github.com/adnan-drina/coolstore-catalog-gitops.git
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+#  syncPolicy:
+#    automated:
+#      prune: true
+#      selfHeal: true
 status:
   health: {}
   summary: {}
