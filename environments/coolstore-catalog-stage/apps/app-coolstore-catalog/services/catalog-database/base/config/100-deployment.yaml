@@ -7,7 +7,7 @@ metadata:
     component: postgresql
     app.kubernetes.io/component: postgresql
     app.kubernetes.io/name: catalog-database
-    app.kubernetes.io/part-of: coolstore-inventory
+    app.kubernetes.io/part-of: coolstore-catalog
     app.openshift.io/runtime: postgresql
 spec:
   replicas: 1
@@ -23,13 +23,13 @@ spec:
         component: postgresql
         app.kubernetes.io/component: postgresql
         app.kubernetes.io/name: catalog-database
-        app.kubernetes.io/part-of: coolstore-inventory
+        app.kubernetes.io/part-of: coolstore-catalog
         app.openshift.io/runtime: postgresql
     spec:
       volumes:
-        - name: inventory-data
+        - name: catalog-data
           persistentVolumeClaim:
-            claimName: inventory-database-pvc
+            claimName: catalog-database-pvc
       containers:
         - resources:
             limits:
