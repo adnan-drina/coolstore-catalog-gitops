@@ -8,6 +8,6 @@ commonLabels:
 
 commonAnnotations:
   app.openshift.io/connects-to: >-
-    ["catalog-database",{"apiVersion":"apps.openshift.io/v1","kind":"DeploymentConfig","name":"catalog-database"}]
+    ["catalog-database",{"apiVersion":"apps.openshift.io/v1","kind":"Deployment","name":"catalog-database"}]
   app.openshift.io/vcs-ref: main
   app.openshift.io/vcs-uri: https://github.com/adnan-drina/coolstore-catalog.git
