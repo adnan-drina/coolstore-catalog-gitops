@@ -10,6 +10,9 @@ spec:
       port: 5432
       protocol: TCP
       targetPort: 5432
+#  selector:
+#    app: catalog-database
+#    component: postgresql
   sessionAffinity: None
   type: ClusterIP
 status:

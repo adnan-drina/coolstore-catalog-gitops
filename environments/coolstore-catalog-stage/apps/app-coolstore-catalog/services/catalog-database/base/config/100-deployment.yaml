@@ -6,7 +6,17 @@ metadata:
     app.openshift.io/runtime: postgresql
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: catalog-database
+      component: postgresql
   template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: catalog-database
+        component: postgresql
+        app.openshift.io/runtime: postgresql
     spec:
       volumes:
         - name: catalog-data
