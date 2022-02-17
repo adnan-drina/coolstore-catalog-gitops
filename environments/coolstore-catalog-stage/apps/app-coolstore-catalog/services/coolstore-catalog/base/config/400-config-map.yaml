@@ -7,20 +7,36 @@ data:
   application.yaml: |-
     server:
       port: 8080
-    catalog:
+    spring:
+      config:
+        activate:
+          on-profile: openshift
       datasource:
         url: 'jdbc:postgresql://catalog-database:5432/catalog'
         username: catalog
         password: mysecretpassword
-        initialize: true
+        initialize: 'true'
         initialization-mode: always
         schema: 'classpath:/schema.sql'
         continue-on-error: 'true'
     inventory:
-      url: 'inventory.coolstore-inventory-stage.svc.cluster.local'
-    prometheus:
-      enabled: 'true'
-      endpoints: 'info,health,metrics,prometheus'
+      url: 'inventory.coolstore-inventory-dev.svc.cluster.local'
+    management:
+      metrics:
+        export:
+          prometheus:
+            enabled: 'true'
+        endpoints:
+          web:
+            exposure:
+              include: 'info,health,metrics,prometheus'
+    feign:
+      hystrix:
+        enabled: 'true'
     hystrix:
-      enabled: 'true'
-      timeoutInMilliseconds: 20000
+      command:
+        default:
+          execution:
+            isolation:
+              thread:
+                timeoutInMilliseconds: 20000
