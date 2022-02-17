@@ -35,16 +35,29 @@ spec:
             successThreshold: 1
             timeoutSeconds: 1
           env:
-            - name: JAVA_OPTS_APPEND
-              value: -Dspring.profiles.active=openshift
-            - name: SPRING_APPLICATION_YAML
-              valueFrom:
-                configMapKeyRef:
-                  name: catalog-spring-config
-                  key: application.yaml
+#            - name: JAVA_OPTS_APPEND
+#              value: -Dspring.profiles.active=openshift
+            - name: SPRING_PROFILES_ACTIVE
+              value: "openshift"
+#            - name: SPRING_APPLICATION_YAML
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: catalog-spring-config
+#                  key: application.yaml
+            volumeMounts:
+              - name: application-config
+                mountPath: "/deployments/config"
+                readOnly: true
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: Always
+      volumes:
+        - name: application-config
+          configMap:
+            name: catalog-spring-config
+            items:
+              - key: application.yaml
+                path: application.yaml
       serviceAccountName: default
 status: {}
