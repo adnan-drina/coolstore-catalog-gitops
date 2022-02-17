@@ -16,7 +16,7 @@ spec:
       containers:
         - name: catalog
           image: >-
-            quay.io/adrina/coolstore-catalog:main-f17664f85619e861d99abd68a0b44b84edeff225
+            quay.io/adrina/coolstore-catalog:main-e4832474e89a7ca444432fecf11106d922c1e6a1
           ports:
             - containerPort: 8080
               protocol: TCP
