@@ -7,17 +7,29 @@ metadata:
   name: coolstore-catalog-dev
   namespace: openshift-gitops
 spec:
+spec:
   destination:
     namespace: coolstore-catalog-dev
     server: https://kubernetes.default.svc
+  ignoreDifferences:
+    - group: route.openshift.io
+      jsonPointers:
+        - /spec/host
+        - /status/ingress
+      kind: Route
+    - group: apps.openshift.io
+      kind: DeploymentConfig
+      jsonPointers:
+        - /spec/template/spec/containers/0/image
+        - /spec/triggers/0/imageChangeParams/lastTriggeredImage
   project: default
   source:
     path: environments/coolstore-catalog-dev/apps/app-coolstore-catalog/overlays
     repoURL: https://github.com/adnan-drina/coolstore-catalog-gitops.git
-#  syncPolicy:
-#    automated:
-#      prune: true
-#      selfHeal: true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
 status:
   health: {}
   summary: {}
