@@ -5,4 +5,3 @@ commonLabels:
   app.kubernetes.io/name: catalog
   app.kubernetes.io/part-of: coolstore-catalog
   app.kubernetes.io/component: spring-boot-service
-  app.kubernetes.io/instance: coolstore-catalog-stage
