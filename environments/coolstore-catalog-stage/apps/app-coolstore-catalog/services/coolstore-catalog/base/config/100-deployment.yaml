@@ -50,7 +50,7 @@ spec:
           configMap:
             name: catalog-spring-config
             items:
-              - key: application.yaml
-                path: application.yaml
+            - key: application.yaml
+              path: application.yaml
       serviceAccountName: default
 status: {}
