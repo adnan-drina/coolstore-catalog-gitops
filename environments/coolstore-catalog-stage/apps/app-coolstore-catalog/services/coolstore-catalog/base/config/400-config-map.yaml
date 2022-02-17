@@ -1,0 +1,26 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: catalog-spring-config
+  namespace: coolstore-catalog-stage
+data:
+  application.yaml: |-
+    server:
+      port: 8080
+    catalog:
+      datasource:
+        url: 'jdbc:postgresql://catalog-database:5432/catalog'
+        username: catalog
+        password: mysecretpassword
+        initialize: true
+        initialization-mode: always
+        schema: 'classpath:/schema.sql'
+        continue-on-error: 'true'
+    inventory:
+      url: 'inventory.coolstore-inventory-stage.svc.cluster.local'
+    prometheus:
+      enabled: 'true'
+      endpoints: 'info,health,metrics,prometheus'
+    hystrix:
+      enabled: 'true'
+      timeoutInMilliseconds: 20000

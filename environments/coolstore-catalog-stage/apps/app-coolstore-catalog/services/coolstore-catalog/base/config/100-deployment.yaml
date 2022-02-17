@@ -37,6 +37,11 @@ spec:
           env:
             - name: JAVA_OPTS_APPEND
               value: -Dspring.profiles.active=openshift
+            - name: SPRING_APPLICATION_JSON
+              valueFrom:
+                configMapKeyRef:
+                  name: catalog-spring-config
+                  key: application.yaml
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
