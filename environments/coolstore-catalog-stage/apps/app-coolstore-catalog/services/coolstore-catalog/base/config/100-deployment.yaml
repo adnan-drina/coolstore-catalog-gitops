@@ -35,15 +35,8 @@ spec:
             successThreshold: 1
             timeoutSeconds: 1
           env:
-#            - name: JAVA_OPTS_APPEND
-#              value: -Dspring.profiles.active=openshift
-            - name: SPRING_PROFILES_ACTIVE
-              value: "openshift"
-#            - name: SPRING_APPLICATION_YAML
-#              valueFrom:
-#                configMapKeyRef:
-#                  name: catalog-spring-config
-#                  key: application.yaml
+            - name: JAVA_OPTS_APPEND
+              value: -Dspring.profiles.active=openshift
             volumeMounts:
               - name: application-config
                 mountPath: "/deployments/config"
