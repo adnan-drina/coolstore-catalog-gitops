@@ -35,12 +35,12 @@ spec:
             successThreshold: 1
             timeoutSeconds: 1
           env:
-            - name: JAVA_OPTS_APPEND
-              value: -Dspring.profiles.active=openshift
-            volumeMounts:
-            - name: application-config
-              mountPath: "/deployments/config"
-              readOnly: true
+          - name: JAVA_OPTS_APPEND
+            value: -Dspring.profiles.active=openshift
+          volumeMounts:
+          - name: application-config
+            mountPath: "/deployments/config"
+            readOnly: true
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
