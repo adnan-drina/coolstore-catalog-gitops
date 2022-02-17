@@ -16,6 +16,10 @@ spec:
       port: 8778
       protocol: TCP
       targetPort: 8778
+    - name: metrics
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
   sessionAffinity: None
   type: ClusterIP
 status:
