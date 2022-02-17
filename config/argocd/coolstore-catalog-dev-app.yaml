@@ -7,7 +7,6 @@ metadata:
   name: coolstore-catalog-dev
   namespace: openshift-gitops
 spec:
-spec:
   destination:
     namespace: coolstore-catalog-dev
     server: https://kubernetes.default.svc
@@ -24,6 +23,11 @@ spec:
         - /spec/triggers/0/imageChangeParams/lastTriggeredImage
         - /spec/triggers/1/imageChangeParams/lastTriggeredImage
         - /spec/triggers/2/imageChangeParams/lastTriggeredImage
+    - group: build.openshift.io
+      kind: BuildConfig
+      jsonPointers:
+        - /spec/triggers
+        - /status
   project: default
   source:
     path: environments/coolstore-catalog-dev/apps/app-coolstore-catalog/overlays
