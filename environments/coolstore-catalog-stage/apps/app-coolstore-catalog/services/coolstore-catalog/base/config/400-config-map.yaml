@@ -20,7 +20,7 @@ data:
         schema: 'classpath:/schema.sql'
         continue-on-error: 'true'
     inventory:
-      url: 'inventory.coolstore-inventory-dev.svc.cluster.local'
+      url: 'inventory.coolstore-inventory-stage.svc.cluster.local'
     management:
       metrics:
         export:
