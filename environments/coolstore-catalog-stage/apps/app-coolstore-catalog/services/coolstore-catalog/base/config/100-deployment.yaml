@@ -37,7 +37,7 @@ spec:
           env:
             - name: JAVA_OPTS_APPEND
               value: -Dspring.profiles.active=openshift
-            - name: SPRING_APPLICATION_JSON
+            - name: SPRING_APPLICATION_YAML
               valueFrom:
                 configMapKeyRef:
                   name: catalog-spring-config
