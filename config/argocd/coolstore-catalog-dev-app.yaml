@@ -21,7 +21,7 @@ spec:
       kind: DeploymentConfig
       jsonPointers:
         - /spec/template/spec/containers/0/image
-        - /spec/triggers/{type=ImageChange}/imageChangeParams/lastTriggeredImage
+        - /spec/triggers/{type=ImageChange}/lastTriggeredImage
   project: default
   source:
     path: environments/coolstore-catalog-dev/apps/app-coolstore-catalog/overlays
