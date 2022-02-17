@@ -1,42 +1,10 @@
-kind: ConfigMap
 apiVersion: v1
+kind: ConfigMap
 metadata:
-  name: catalog-spring-config
+  name: coolstore-catalog-config
   namespace: coolstore-catalog-stage
 data:
-  application.yaml: |-
-    server:
-      port: 8080
-    spring:
-      config:
-        activate:
-          on-profile: openshift
-      datasource:
-        url: 'jdbc:postgresql://catalog-database:5432/catalog'
-        username: catalog
-        password: mysecretpassword
-        initialize: 'true'
-        initialization-mode: always
-        schema: 'classpath:/schema.sql'
-        continue-on-error: 'true'
-    inventory:
-      url: 'inventory.coolstore-inventory-stage.svc.cluster.local'
-    management:
-      metrics:
-        export:
-          prometheus:
-            enabled: 'true'
-        endpoints:
-          web:
-            exposure:
-              include: 'info,health,metrics,prometheus'
-    feign:
-      hystrix:
-        enabled: 'true'
-    hystrix:
-      command:
-        default:
-          execution:
-            isolation:
-              thread:
-                timeoutInMilliseconds: 20000
+  DATASOURCE_URL: 'jdbc:postgresql://catalog-database:5432/catalog'
+  DATASOURCE_USERNAME: catalog
+  DATASOURCE_PASSWORD: mysecretpassword
+  INVENTORY_URL: 'inventory.coolstore-inventory-stage.svc.cluster.local'

@@ -37,20 +37,29 @@ spec:
           env:
           - name: JAVA_OPTS_APPEND
             value: -Dspring.profiles.active=openshift
-          volumeMounts:
-          - name: application-config
-            mountPath: "/deployments/config"
-            readOnly: true
+          - name: DATASOURCE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: coolstore-catalog-config
+                key: DATASOURCE_URL
+          - name: DATASOURCE_USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: coolstore-catalog-config
+                key: DATASOURCE_USERNAME
+          - name: DATASOURCE_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: coolstore-catalog-config
+                key: DATASOURCE_PASSWORD
+          - name: INVENTORY_URL
+            valueFrom:
+              configMapKeyRef:
+                name: coolstore-catalog-config
+                key: INVENTORY_URL
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: Always
-      volumes:
-        - name: application-config
-          configMap:
-            name: catalog-spring-config
-            items:
-            - key: application.yaml
-              path: application.yaml
       serviceAccountName: default
 status: {}
