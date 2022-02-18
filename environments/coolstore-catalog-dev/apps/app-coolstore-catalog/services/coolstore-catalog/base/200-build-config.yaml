@@ -8,7 +8,8 @@ metadata:
   labels:
     app.kubernetes.io/name: catalog
     app.kubernetes.io/part-of: coolstore-catalog
-    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+    app.kubernetes.io/component: spring-boot-service
+    app.kubernetes.io/instance: coolstore-catalog-dev
     app.openshift.io/runtime: spring
   name: catalog
   namespace: coolstore-catalog-dev
