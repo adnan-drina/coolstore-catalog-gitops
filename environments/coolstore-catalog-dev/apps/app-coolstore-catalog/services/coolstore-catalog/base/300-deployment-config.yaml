@@ -81,5 +81,4 @@ spec:
         kind: ImageStreamTag
         name: catalog:latest
         namespace: coolstore-catalog-dev
-      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/coolstore-catalog-dev/catalog
     type: ImageChange
