@@ -22,10 +22,10 @@ spec:
     port: 8778
     protocol: TCP
     targetPort: 8778
-  - name: metrics
-    port: 8080
-    protocol: TCP
-    targetPort: 8080
+#  - name: metrics
+#    port: 8080
+#    protocol: TCP
+#    targetPort: 8080
   selector:
     deploymentconfig: catalog
   sessionAffinity: None
