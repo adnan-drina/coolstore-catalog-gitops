@@ -1,7 +1,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: coolstore-catalog-source-pvc
+  name: maven-repo-pvc
   namespace: coolstore-catalog-cicd
 spec:
   accessModes:
