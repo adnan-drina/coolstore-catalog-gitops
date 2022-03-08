@@ -116,7 +116,7 @@ spec:
       params:
         - name: GOALS
           value:
-            - verify
+#            - verify
             - sonar:sonar
             - -DskipTests=true
 #            - -Dsonar.project.tags=$(params.COMMIT_SHA)
