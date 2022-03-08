@@ -116,10 +116,10 @@ spec:
       params:
         - name: GOALS
           value:
-            - install
+            - verify
             - sonar:sonar
             - -DskipTests=true
-            - -Dsonar.project.tags=$(params.COMMIT_SHA)
+#            - -Dsonar.project.tags=$(params.COMMIT_SHA)
 
     - name: release-to-nexus
       taskRef:
