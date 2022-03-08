@@ -116,10 +116,10 @@ spec:
       params:
         - name: GOALS
           value:
-#            - verify
             - sonar:sonar
-            - -DskipTests=true
-#            - -Dsonar.project.tags=$(params.COMMIT_SHA)
+            - -DskipTests
+            - -Dsonar.scm.provider=git
+#            - -Dsonar.projectBaseDir=
 
     - name: release-to-nexus
       taskRef:
@@ -139,9 +139,7 @@ spec:
           value:
             - -DskipTests
             - clean
-#            - package
             - deploy
-#            - install
 
     - name: build-image
       params:
