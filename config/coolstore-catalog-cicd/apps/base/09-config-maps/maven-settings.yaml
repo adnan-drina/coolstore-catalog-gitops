@@ -10,18 +10,30 @@ data:
       <profiles>
         <profile>
           <id>nexus</id>
+          <!--Enable snapshots for the built in central repo to direct -->
+          <!--all requests to nexus via the mirror -->
           <repositories>
             <repository>
-              <id>redhat-ga</id>
-              <name>Red Hat GA Repository</name>
-              <url>http://maven.repository.redhat.com/ga/</url>
+              <id>central</id>
+              <url>http://central</url>
+              <releases>
+                <enabled>true</enabled>
+              </releases>
+              <snapshots>
+                <enabled>true</enabled>
+              </snapshots>
             </repository>
           </repositories>
           <pluginRepositories>
             <pluginRepository>
-              <id>redhat-ga</id>
-              <name>Red Hat GA Repository</name>
-              <url>http://maven.repository.redhat.com/ga/</url>
+              <id>central</id>
+              <url>http://central</url>
+              <releases>
+                <enabled>true</enabled>
+              </releases>
+              <snapshots>
+                <enabled>true</enabled>
+              </snapshots>
             </pluginRepository>
           </pluginRepositories>
           <properties>
