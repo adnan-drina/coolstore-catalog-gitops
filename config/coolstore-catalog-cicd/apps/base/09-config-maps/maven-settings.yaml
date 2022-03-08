@@ -98,6 +98,13 @@ data:
               </snapshots>
             </pluginRepository>
           </pluginRepositories>
+          <pluginRepositories>
+            <pluginRepository>
+              <id>redhat-ga</id>
+              <name>Red Hat GA Repository</name>
+              <url>https://maven.repository.redhat.com/ga/</url>
+            </pluginRepository>
+          </pluginRepositories>
         </profile>
       </profiles>
       <activeProfiles>
