@@ -27,7 +27,6 @@ data:
                   <sonar.password>admin123</sonar.password>
               </properties>
             </profile>
-#            <profiles>
             <!-- JBoss EAP Maven repository -->
             <profile>
                 <id>jboss-eap-repository</id>
@@ -197,9 +196,6 @@ data:
                 </pluginRepositories>
             </profile>
         </profiles>
-#          <activeProfiles>
-#              <activeProfile>securecentral</activeProfile>
-#          </activeProfiles>
           <activeProfiles>
             <activeProfile>nexus</activeProfile>
           </activeProfiles>
