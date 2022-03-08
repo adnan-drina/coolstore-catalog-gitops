@@ -116,8 +116,11 @@ spec:
       params:
         - name: GOALS
           value:
+            - install
             - sonar:sonar
-            - -DskipTests
+            - -f
+            - catalog
+            - -DskipTests=true
             - -Dsonar.project.tags=$(params.COMMIT_SHA)
 
     - name: release-to-nexus
