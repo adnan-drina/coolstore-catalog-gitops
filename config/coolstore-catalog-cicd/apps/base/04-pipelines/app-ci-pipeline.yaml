@@ -93,6 +93,8 @@ spec:
           workspace: shared-data
         - name: maven-settings
           workspace: maven-settings
+        - name: maven-repo
+          workspace: local-maven-repo
       params:
         - name: GOALS
           value:
@@ -109,6 +111,8 @@ spec:
           workspace: shared-data
         - name: maven-settings
           workspace: maven-settings
+        - name: maven-repo
+          workspace: local-maven-repo
       params:
         - name: GOALS
           value:
