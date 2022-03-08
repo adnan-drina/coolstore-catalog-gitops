@@ -13,7 +13,7 @@ data:
           <properties>
               <altDeploymentRepository>nexus::default::http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-releases/</altDeploymentRepository>
               <altReleaseDeploymentRepository>nexus::default::http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-releases/</altReleaseDeploymentRepository>
-              <altSnapshotDeploymentRepository>nexus::default::http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-snapshots/</altSnapshotDeploymentRepository>
+              <altSnapshotDeploymentRepository>nexus::http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-snapshots/</altSnapshotDeploymentRepository>
           </properties>
         </profile>
         <profile>
