@@ -22,7 +22,7 @@ data:
               <activeByDefault>true</activeByDefault>
           </activation>
           <properties>
-              <sonar.host.url>https://sonarqube.sonarqube.svc.cluster.local:9000</sonar.host.url>
+              <sonar.host.url>https://sonarqube.sonarqube.svc.cluster.local</sonar.host.url>
               <sonar.login>admin</sonar.login>
               <sonar.password>admin</sonar.password>
           </properties>
