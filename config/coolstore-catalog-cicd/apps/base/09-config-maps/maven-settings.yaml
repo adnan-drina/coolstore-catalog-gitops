@@ -6,27 +6,14 @@ metadata:
 data:
   settings.xml: |
     <?xml version="1.0" encoding="UTF-8"?>
-        <settings>
-          <profiles>
-            <profile>
-              <id>nexus</id>
-              <properties>
-                  <altDeploymentRepository>nexus::http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-releases/</altDeploymentRepository>
-                  <altReleaseDeploymentRepository>nexus::http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-releases/</altReleaseDeploymentRepository>
-                  <altSnapshotDeploymentRepository>nexus::http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-snapshots/</altSnapshotDeploymentRepository>
-              </properties>
-            </profile>
-            <profile>
-              <id>sonar</id>
-              <activation>
-                  <activeByDefault>true</activeByDefault>
-              </activation>
-              <properties>
-                  <sonar.host.url>https://sonarqube-sonarqube.apps.cluster-5ded.5ded.example.opentlc.com</sonar.host.url>
-                  <sonar.login>admin</sonar.login>
-                  <sonar.password>admin123</sonar.password>
-              </properties>
-            </profile>
+    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+        <mirrors>
+            <!-- ### configured mirrors ### -->
+        </mirrors>
+        <proxies>
+            <!-- ### configured http proxy ### -->
+        </proxies>
+        <profiles>
             <!-- JBoss EAP Maven repository -->
             <profile>
                 <id>jboss-eap-repository</id>
@@ -196,22 +183,7 @@ data:
                 </pluginRepositories>
             </profile>
         </profiles>
-          <activeProfiles>
+        <activeProfiles>
             <activeProfile>securecentral</activeProfile>
-          </activeProfiles>
-          <servers>
-            <server>
-              <id>nexus</id>
-              <username>admin</username>
-              <password>admin123</password>
-            </server>
-          </servers>
-          <mirrors>
-            <mirror>
-              <id>nexus</id>
-              <name>nexus</name>
-              <url>http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-public/</url>
-              <mirrorOf>*</mirrorOf>
-            </mirror>
-          </mirrors>
-        </settings>
+        </activeProfiles>
+    </settings>
