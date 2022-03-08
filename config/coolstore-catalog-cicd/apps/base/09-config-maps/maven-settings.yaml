@@ -19,8 +19,8 @@ data:
       <mirrors>
         <mirror>
           <id>nexus</id>
-          <mirrorOf>external:*</mirrorOf>
-          <url>http://nexus.nexus-repository.svc.cluster.local:8081/nexus/content/groups/public/</url>
+          <mirrorOf>*</mirrorOf>
+          <url>http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-public//</url>
         </mirror>
       </mirrors>
       <profiles>
