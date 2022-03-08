@@ -6,9 +6,45 @@ metadata:
 data:
   settings.xml: |
     <?xml version="1.0" encoding="UTF-8"?>
-    <settings
-      xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <settings>
+      <profiles>
+        <profile>
+          <id>nexus</id>
+          <repositories>
+            <repository>
+              <id>redhat-ga</id>
+              <name>Red Hat GA Repository</name>
+              <url>http://maven.repository.redhat.com/ga/</url>
+            </repository>
+          </repositories>
+          <pluginRepositories>
+            <pluginRepository>
+              <id>redhat-ga</id>
+              <name>Red Hat GA Repository</name>
+              <url>http://maven.repository.redhat.com/ga/</url>
+            </pluginRepository>
+          </pluginRepositories>
+          <properties>
+              <altDeploymentRepository>nexus::http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-releases/</altDeploymentRepository>
+              <altReleaseDeploymentRepository>nexus::http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-releases/</altReleaseDeploymentRepository>
+              <altSnapshotDeploymentRepository>nexus::http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-snapshots/</altSnapshotDeploymentRepository>
+          </properties>
+        </profile>
+        <profile>
+          <id>sonar</id>
+          <activation>
+              <activeByDefault>true</activeByDefault>
+          </activation>
+          <properties>
+              <sonar.host.url>https://sonarqube-sonarqube.apps.cluster-5ded.5ded.example.opentlc.com</sonar.host.url>
+              <sonar.login>admin</sonar.login>
+              <sonar.password>admin123</sonar.password>
+          </properties>
+        </profile>
+      </profiles>
+      <activeProfiles>
+        <activeProfile>nexus</activeProfile>
+      </activeProfiles>
       <servers>
         <server>
           <id>nexus</id>
@@ -19,100 +55,9 @@ data:
       <mirrors>
         <mirror>
           <id>nexus</id>
-          <mirrorOf>*</mirrorOf>
+          <name>nexus</name>
           <url>http://nexus.nexus-repository.svc.cluster.local:8081/repository/maven-public/</url>
+          <mirrorOf>*</mirrorOf>
         </mirror>
       </mirrors>
-      <profiles>
-        <profile>
-          <id>nexus</id>
-          <repositories>
-            <repository>
-              <id>spring-releases</id>
-              <name>Spring Releases</name>
-              <url>https://repo.spring.io/libs-release</url>
-              <snapshots>
-                <enabled>false</enabled>
-              </snapshots>
-            </repository>
-            <repository>
-              <id>spring-snapshots</id>
-              <name>Spring Snapshots</name>
-              <url>https://repo.spring.io/libs-snapshot</url>
-              <snapshots>
-                <enabled>true</enabled>
-              </snapshots>
-              <releases>
-                <enabled>false</enabled>
-              </releases>
-            </repository>
-            <repository>
-              <id>spring-milestones</id>
-              <name>Spring Milestones</name>
-              <url>https://repo.spring.io/libs-milestone</url>
-              <snapshots>
-                <enabled>false</enabled>
-              </snapshots>
-            </repository>
-            <repository>
-              <id>central</id>
-              <url>https://repo1.maven.org/maven2/</url>
-              <releases>
-                <enabled>true</enabled>
-              </releases>
-            </repository>
-            <repository>
-              <id>redhat-ga</id>
-              <url>https://maven.repository.redhat.com/ga/</url>
-              <releases>
-                <enabled>true</enabled>
-              </releases>
-            </repository>
-            <repository>
-              <id>redhat-tp</id>
-              <url>https://maven.repository.redhat.com/techpreview/all/</url>
-              <releases>
-                <enabled>true</enabled>
-              </releases>
-            </repository>
-          </repositories>
-          <pluginRepositories>
-            <pluginRepository>
-              <id>spring-snapshots</id>
-              <name>Spring Snapshots</name>
-              <url>https://repo.spring.io/libs-snapshot</url>
-              <snapshots>
-                <enabled>true</enabled>
-              </snapshots>
-              <releases>
-                <enabled>false</enabled>
-              </releases>
-            </pluginRepository>
-            <pluginRepository>
-              <id>spring-milestones</id>
-              <name>Spring Milestones</name>
-              <url>https://repo.spring.io/libs-milestone</url>
-              <snapshots>
-                <enabled>false</enabled>
-              </snapshots>
-            </pluginRepository>
-            <pluginRepository>
-              <id>spring-releases</id>
-              <name>Spring Releases</name>
-              <url>https://repo.spring.io/libs-release</url>
-              <snapshots>
-                <enabled>false</enabled>
-              </snapshots>
-            </pluginRepository>
-            <pluginRepository>
-              <id>redhat-ga</id>
-              <name>Red Hat GA Repository</name>
-              <url>https://maven.repository.redhat.com/ga/</url>
-            </pluginRepository>
-          </pluginRepositories>
-        </profile>
-      </profiles>
-      <activeProfiles>
-        <activeProfile>nexus</activeProfile>
-      </activeProfiles>
     </settings>
