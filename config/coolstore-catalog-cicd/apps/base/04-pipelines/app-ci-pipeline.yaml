@@ -118,8 +118,6 @@ spec:
           value:
             - install
             - sonar:sonar
-            - -f
-            - catalog
             - -DskipTests=true
             - -Dsonar.project.tags=$(params.COMMIT_SHA)
 
