@@ -22,9 +22,9 @@ data:
               <activeByDefault>true</activeByDefault>
           </activation>
           <properties>
-              <sonar.host.url>https://sonarqube-sonarqube.apps.cluster-5ded.5ded.example.opentlc.com</sonar.host.url>
+              <sonar.host.url>https://sonarqube.sonarqube.svc.cluster.local:9000</sonar.host.url>
               <sonar.login>admin</sonar.login>
-              <sonar.password>admin123</sonar.password>
+              <sonar.password>admin</sonar.password>
           </properties>
         </profile>
         <!-- JBoss EAP Maven repository -->

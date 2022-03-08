@@ -82,7 +82,41 @@ spec:
         - name: output
           workspace: shared-data
 
-    - name: package-app
+    - name: unit-tests
+      taskRef:
+        kind: Task
+        name: maven
+      runAfter:
+        - clone-source
+      workspaces:
+        - name: source
+          workspace: shared-data
+        - name: maven-settings
+          workspace: maven-settings
+      params:
+        - name: GOALS
+          value:
+            - test
+
+    - name: static-code-analysis
+      taskRef:
+        kind: Task
+        name: maven
+      runAfter:
+        - clone-source
+      workspaces:
+        - name: source
+          workspace: shared-data
+        - name: maven-settings
+          workspace: maven-settings
+      params:
+        - name: GOALS
+          value:
+            - sonar:sonar
+            - -DskipTests
+            - -Dsonar.project.tags=$(params.COMMIT_SHA)
+
+    - name: release-to-nexus
       taskRef:
         kind: Task
         name: maven
@@ -115,7 +149,9 @@ spec:
         - name: IMAGE
           value: $(params.IMAGE)
       runAfter:
-        - package-app
+        - release-to-nexus
+        - unit-tests
+        - static-code-analysis
       taskRef:
         kind: ClusterTask
         name: buildah
