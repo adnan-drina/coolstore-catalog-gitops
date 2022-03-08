@@ -101,8 +101,8 @@ spec:
             - -DskipTests
             - clean
 #            - package
-#            - deploy
-            - install
+            - deploy
+#            - install
 
     - name: build-image
       params:
