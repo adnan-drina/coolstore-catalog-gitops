@@ -97,8 +97,6 @@ data:
                 <enabled>false</enabled>
               </snapshots>
             </pluginRepository>
-          </pluginRepositories>
-          <pluginRepositories>
             <pluginRepository>
               <id>redhat-ga</id>
               <name>Red Hat GA Repository</name>
